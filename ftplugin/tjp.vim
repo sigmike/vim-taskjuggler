@@ -29,11 +29,3 @@ function! ShowFullID()
   let filename = bufname("%")
   execute "!grep '".filename."\t".linenumber.";' tags|cut -f 1"
 endfunction
-
-augroup TaskJugglerSource
-  " Remove all trailing white spaces from line ends when saving files
-  " Note: This overwrites the s mark.
-  autocmd BufWritePre *.tj[ip] mark s | %s/\s\+$//e | normal `s
-augroup END
-
-
